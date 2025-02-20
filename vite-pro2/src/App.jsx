@@ -1,18 +1,33 @@
-import Hello from './hello';
 import { useState } from 'react';
 
-function App(){
-  const [count, setcount]=useState(0);
-  return(
+
+function App() {
+  const [color, setcolor]=useState("white");
+
+  
+  return (
     <>
-    <Hello username="ali"/>
-    <h1>counter: {count}</h1>
-    <button onClick={()=>setcount(count+5)}>Add 5</button>
-    <button onClick={()=>setcount(count-5)} disabled={count===0}>remove 5</button>
-    <button onClick={()=>setcount(0)}>Reset</button>
+  
+    <div className="flex justify-center items-end h-screen" style={{backgroundColor:color}}>
+      <footer className="w-5xl h-15 border-2 border-b-black bg-white mb-5">
+        <div className="h-full w-full flex items-center justify-evenly">
+
+        <button onClick={()=> setcolor("black")}
+         className="bg-black  border-2    text-white">Black</button>
+
+       <button onClick={()=> setcolor("red")} className="bg-red-400 border-2   text-white">Red</button>
+
+     <button onClick={()=> setcolor("pink")} className="bg-pink-400 border-2   text-white">pink</button>
+      
+       <button onClick={()=> setcolor("yellow")} className="bg-yellow-400 border-2  text-white">yellow</button>
+       
+       <button onClick={()=> setcolor("green")} className="bg-green-400 border-2 text-white">Black</button>
+        </div>
+      </footer>
+    </div>
+     
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
