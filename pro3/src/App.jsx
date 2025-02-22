@@ -7,7 +7,9 @@ function App() {
   const [char, setChar] = useState(false);
   const [copied, setCopied] = useState(false);
   
-  const cpthepass = useRef(null);
+  const copyPassword = useRef(null);
+
+  //window reload
 
   // Callback hook for password generating
   const passwordGenerator = useCallback(() => {
@@ -27,8 +29,8 @@ function App() {
 
   // Function to copy the password
   const copyToClipboard = useCallback(() => {
-    if (cpthepass.current) {
-      cpthepass.current.select();
+    if (copyPassword.current) {
+      copyPassword.current.select();
       navigator.clipboard.writeText(password);
       setCopied(true);
     }
@@ -41,7 +43,9 @@ function App() {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-96">
-        <h1 className="text-2xl font-bold text-center mb-4">🔐 Password Generator</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">🔐 Password 
+        <button onClick={} className=" right-2  top-2 px-3  bg-blue-600 hover:bg-blue-700 text-white rounded">Generate</button>
+        </h1>
 
         {/* Password Display */}
         <div className="relative">
@@ -49,9 +53,10 @@ function App() {
             type="text"
             value={password}
             readOnly
-            ref={cpthepass}
+            ref={copyPassword}
             className="w-full px-3 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white"
           />
+          
           <button
             onClick={copyToClipboard}
             className="absolute right-2  top-2 px-3  bg-blue-600 hover:bg-blue-700 text-white rounded"
@@ -60,8 +65,11 @@ function App() {
           </button>
         </div>
 
+        
+
         {/* Length Slider */}
         <div className="flex items-center justify-between mt-4">
+          
           <label className="text-lg">Length: {length}</label>
           <input
             type="range"
