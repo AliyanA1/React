@@ -10,6 +10,9 @@ function App() {
   const copyPassword = useRef(null);
 
   //window reload
+  const rload=()=>{
+      window.location.reload();
+  }
 
   // Callback hook for password generating
   const passwordGenerator = useCallback(() => {
@@ -44,7 +47,7 @@ function App() {
     <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-96">
         <h1 className="text-2xl font-bold text-center mb-4">🔐 Password 
-        <button onClick={} className=" right-2  top-2 px-3  bg-blue-600 hover:bg-blue-700 text-white rounded">Generate</button>
+        <button onClick={rload} className=" right-2  top-2 px-3 ml-2 bg-red-500 hover:bg-red-700 text-white rounded">Generate</button>
         </h1>
 
         {/* Password Display */}
