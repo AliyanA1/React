@@ -15,14 +15,14 @@ function App() {
     let str = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     if (number) str += "0123456789";
-    if (char) str += "!@#$%^&*(){}?><.";
+    if (char) str += "!@#$%^&*(){}?><.+=";
 
     for (let i = 0; i < length; i++) {
       let create = Math.floor(Math.random() * str.length);
       pass += str.charAt(create);
     }
     setPassword(pass);
-    setCopied(false); // Reset "Copied!" message
+    setCopied(false); 
   }, [length, number, char]);
 
   // Function to copy the password
