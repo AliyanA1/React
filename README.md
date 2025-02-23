@@ -1,1 +1,1 @@
-Learning React and making projects
+Learning React and making the projects
