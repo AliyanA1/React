@@ -8,7 +8,7 @@ export default function Home() {
                     <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
                         <h2 className="text-4xl font-bold sm:text-5xl">
                            Happy Ramadan
-                            <span className="hidden sm:block text-4xl">Ramadan</span>
+                            <span className="hidden sm:block text-4xl">Muabarak</span>
                         </h2>
 
                         <Link
@@ -39,7 +39,7 @@ export default function Home() {
                 <img className="sm:w-96 w-48" src="https://img.freepik.com/free-vector/ramdan-kareem-design-with-decorative-lantern-islamic-floral-decoration_1017-18586.jpg?ga=GA1.1.350092013.1740810520&semt=ais_hybrid" alt="image2" />
             </div>
 
-            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
+            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Add you name in Route to see magic</h1>
         </div>
     );
 }
