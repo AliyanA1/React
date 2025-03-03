@@ -8,4 +8,8 @@ export default defineConfig({
     tailwindcss(),
     
   ],
+  config: {
+    darkMode: 'class',
+  }
 })
+
