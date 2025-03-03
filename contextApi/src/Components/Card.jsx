@@ -2,9 +2,13 @@
 export default function Card() {
    return (
        <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-           <a href="/">
-               <img className="p-8 rounded-t-lg" src="https://images.pexels.com/photos/18264716/pexels-photo-18264716/free-photo-of-man-people-laptop-internet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="product_image1" />
-           </a>
+          <a href="/">
+  <img
+    className="p-6 md:p-8 rounded-t-lg w-full h-64 object-cover transition-transform duration-300 hover:scale-105 dark:brightness-90"
+   src="https://images.unsplash.com/photo-1575125069494-6a0c5819d340?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fGFwcGxlJTIwd2F0Y2h8ZW58MHx8MHx8fDA%3D"
+    alt="Apple Watch Series 7"
+  />
+</a>
            <div className="px-5 pb-5">
                <a href="/">
                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
