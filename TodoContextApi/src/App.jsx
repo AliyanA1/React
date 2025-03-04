@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {TodoProvider} from './Contexts'
 
 
@@ -28,6 +28,19 @@ function App() {
        prevTodo.id === id ? 
        {...prevTodo, completed: !prevTodo.completed} :prevTodo))
   }
+
+  //useEffect for getitem in local storage
+  useEffect(()=>{
+    const todos=JSON.parse(localStorage.getItem("todos"));
+    if(todos && todos.length >0){
+       setTodos(todos)
+    }
+  },[])
+
+//useEffect for setItem in local storage
+useEffect(()=>{
+  localStorage.setItem("todos",JSON.stringify(todos))
+},[todos])
 
   return (
     <TodoProvider value={{todos, addTodo, updateTodo, deleteTodo, togelTodo}}>
