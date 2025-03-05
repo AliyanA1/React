@@ -8,18 +8,18 @@ function App() {
 
   const lightTheme = () => {
     setThemeMode('light');
-    console.log('Set theme to light'); // Debug log
+    
   };
 
   const darkTheme = () => {
     setThemeMode('dark');
-    console.log('Set theme to dark'); // Debug log
+    
   };
 
   useEffect(() => {
     document.querySelector('html').classList.remove('light', 'dark');
     document.querySelector('html').classList.add(themeMode);
-    console.log('Applied class to html:', themeMode); // Debug log
+    
   }, [themeMode]);
 
   return (
