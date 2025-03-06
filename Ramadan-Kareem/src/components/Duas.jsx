@@ -1,6 +1,6 @@
 function Dua() {
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 dark:bg-gray-900 dark:text-white">
             {/* Hero Section */}
             <section 
                 className="relative h-[400px] flex items-center justify-center bg-cover bg-center text-white" 
@@ -13,10 +13,10 @@ function Dua() {
             </section>
 
             {/* What is Dua? */}
-            <section className="py-16 px-6 md:px-12 bg-white">
+            <section className="py-16 px-6 md:px-12 bg-white dark:bg-gray-900  dark:text-gray-100">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">What is Dua?</h2>
-                    <p className="text-gray-600 text-lg">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4 dark:text-white">What is Dua?</h2>
+                    <p className="text-gray-600 text-lg dark:text-white">
                         Dua is an act of supplication and the most powerful way to seek guidance, mercy, and blessings from Allah (SWT). 
                         It is a form of direct communication with the Creator.
                     </p>
@@ -31,9 +31,9 @@ function Dua() {
             </section>
 
             {/* Featured Duas */}
-            <section className="py-16 bg-gray-100">
+            <section className="py-16 bg-gray-100 dark:bg-gray-900  dark:text-gray-100">
                 <div className="max-w-6xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-10">Essential Duas</h2>
+                    <h2 className="text-3xl font-bold text-gray-800 mb-10 dark:text-white">Essential Duas</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Dua for Forgiveness */}
                         <div className="bg-white p-6 rounded-lg shadow-md">
