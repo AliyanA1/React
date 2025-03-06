@@ -1,6 +1,6 @@
 function Sunnah() {
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 dark:bg-gray-900 dark:text-white">
             {/* Hero Section */}
             <section 
                 className="relative h-[400px] flex items-center justify-center bg-cover bg-center text-white" 
@@ -13,10 +13,10 @@ function Sunnah() {
             </section>
 
             {/* What is Sunnah? */}
-            <section className="py-16 px-6 md:px-12 bg-white">
+            <section className="py-16 px-6 md:px-12 bg-white dark:bg-gray-900 dark:text-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">What is Sunnah?</h2>
-                    <p className="text-gray-600 text-lg">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4 dark:text-white">What is Sunnah?</h2>
+                    <p className="text-gray-600 text-lg dark:text-white">
                         Sunnah refers to the teachings, actions, and sayings of Prophet Muhammad (PBUH). 
                         It serves as a practical guide for Muslims, helping them follow a righteous and fulfilling life.
                     </p>
@@ -31,9 +31,9 @@ function Sunnah() {
             </section>
 
             {/* Types of Sunnah */}
-            <section className="py-16 bg-gray-100">
-                <div className="max-w-6xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-10">Types of Sunnah</h2>
+            <section className="py-16 bg-gray-100 dark:bg-gray-900 dark:text-white">
+                <div className="max-w-6xl mx-auto text-center ">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-10 dark:text-white">Types of Sunnah</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Sunnah of Eating */}
                         <div className="bg-white p-6 rounded-lg shadow-md">
