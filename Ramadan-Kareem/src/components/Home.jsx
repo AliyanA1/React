@@ -1,6 +1,6 @@
 function Home() {
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100  dark:bg-gray-900 dark:text-white">
             {/* Top Ramadan Image */}
             <div className="flex justify-center py-6">
                 <img 
@@ -22,10 +22,10 @@ function Home() {
             </section>
 
             {/* About Ramadan Section */}
-            <section className="py-16 px-6 md:px-12 bg-white">
+            <section className="py-16 px-6 md:px-12 bg-white dark:bg-gray-900 dark:text-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">What is Ramadan?</h2>
-                    <p className="text-gray-600 text-lg">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-4 dark:text-white">What is Ramadan?</h2>
+                    <p className="text-gray-600 text-lg dark:text-white">
                         Ramadan is the ninth month of the Islamic calendar, observed by Muslims worldwide as a time of fasting, prayer, reflection, and community. 
                         It commemorates the first revelation of the Quran to Prophet Muhammad (PBUH).
                     </p>
@@ -40,10 +40,10 @@ function Home() {
             </section>
 
             {/* Featured Topics */}
-            <section className="py-16 bg-gray-100">
-                <div className="max-w-6xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-gray-800 mb-10">Explore Ramadan Topics</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <section className="py-16 bg-gray-100 dark:bg-gray-900 dark:text-white">
+                <div className="max-w-6xl mx-auto text-center dark:bg-gray-900 dark:text-white">
+                    <h2 className="text-3xl font-bold text-gray-800 mb-10 dark:text-white">Explore Ramadan Topics</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                         {/* Topic 1 */}
                         <div className="bg-white p-6 rounded-lg shadow-md">
                             
@@ -75,7 +75,7 @@ function Home() {
             </section>
 
             {/* Call to Action */}
-            <section className="py-16 px-6 md:px-12 bg-green-600 text-white text-center">
+            <section className="py-16 px-6 md:px-12 bg-green-600 text-white text-center dark:bg-gray-900 dark:text-white">
                 <h2 className="text-3xl font-bold">Join Us This Ramadan</h2>
                 <p className="text-lg mt-3">Embrace the spiritual journey with daily reminders, duas, and guidance.</p>
                 <button className="mt-5 px-6 py-3 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-200 transition">
