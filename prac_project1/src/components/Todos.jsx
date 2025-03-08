@@ -1,8 +1,10 @@
-import { useSelector} from "react-redux"
+import { useSelector, useDispatch} from "react-redux"
+import { removeTodo } from "../Content/TodoSlice"
 
 
 function Todos(){
     const select=useSelector(state=> state.todos)
+    const dispatch=useDispatch()
     
     return(
         <>
@@ -10,7 +12,10 @@ function Todos(){
             <ul>
                {
                  select.map((todo)=> (
-                    <li key={todo.id}>• {todo.text}</li>
+                    <li key={todo.id}>
+                        • {todo.text} 
+                     <button className="m-4" onClick={()=> dispatch(removeTodo(todo.id))}>🚮</button>
+                     </li>
                  ))
                }
             </ul>
