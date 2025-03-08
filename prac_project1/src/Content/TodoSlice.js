@@ -1,8 +1,13 @@
 import { createSlice , nanoid} from "@reduxjs/toolkit";
 
+const SetTodos=()=>{
+    const savedTodos=localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos):[];
+}
+
 const TodoSlice=createSlice({
     name: 'Todo',
-    initialState:[],
+    initialState:SetTodos(),
     reducers:{
         addTodo:(state, action)=>{
             state.push({
@@ -10,8 +15,8 @@ const TodoSlice=createSlice({
                 text: action.payload,
                 completed: false
             })
-
-            
+        localStorage.setItem('todos', JSON.stringify(state))
+        
         },
         // removeTodo:(state, action)=>{
         //     return state=state.filter(todo=> todo.id !== action.payload)
