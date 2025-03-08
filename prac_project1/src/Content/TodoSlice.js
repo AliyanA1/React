@@ -18,9 +18,12 @@ const TodoSlice=createSlice({
         localStorage.setItem('todos', JSON.stringify(state))
         
         },
-        // removeTodo:(state, action)=>{
-        //     return state=state.filter(todo=> todo.id !== action.payload)
-        // },
+        removeTodo:(state, action)=>{
+         const newState=state.filter(todo=> todo.id !== action.payload)
+         localStorage.setItem("todos", JSON.stringify(newState));
+         return newState
+       
+        },
         // updateTodo:(state, action)=>{
         //   const todo=state.map(todo=> todo.id === action.payload.id);
         //   if(todo){
@@ -31,5 +34,5 @@ const TodoSlice=createSlice({
     }
 });
 
-export const {addTodo}= TodoSlice.actions;
+export const {addTodo, removeTodo}= TodoSlice.actions;
 export default TodoSlice.reducer
