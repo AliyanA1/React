@@ -1,14 +1,16 @@
 
-
-import './App.css'
-
 function App() {
 console.log(import.meta.env.VITE_APPWRITE_URL)
  
 
   return (
     <>
-    <h1>Making a blog web App </h1>
+    <div className="h-screen flex items-center justify-center bg-gray-900">
+  <h1 className="text-2xl font-mono text-white">
+    Making a blog web App
+  </h1>
+</div>
+
     </>
   )
 }
