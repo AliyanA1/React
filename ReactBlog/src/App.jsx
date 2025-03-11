@@ -1,18 +1,36 @@
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import authService from "./appwrite/auth"
+import { login, logout } from "./store/auth";
+import {Header, Footer} from './components/index'
 
 function App() {
-console.log(import.meta.env.VITE_APPWRITE_URL)
+  const [loading, setLoading]=useState(true);
+  const dispatch=useDispatch();
+
+  //useEffect
+  useEffect(()=>{
+    authService.getCurrentUser()
+    .then((userData)=>{
+        if(userData){
+          dispatch(login({userData}))
+        }else{
+          dispatch(logout())
+        }
+    })
+    .catch((error) => console.error("Error fetching user:", error))
+    .finally(()=> setLoading(false))
+  },[dispatch])
  
 
-  return (
-    <>
-    <div className="h-screen flex items-center justify-center bg-gray-900">
-  <h1 className="text-2xl font-mono text-white">
-    Making a blog web App
-  </h1>
-</div>
+ return !loading ? (
+  <div className="h-screen flex items-center justify-around bg-gray-900">
+       <Header/>
+        <h1 className="text-2xl font-mono text-white">Loading...</h1>
+        <Footer/>
+      </div>
+ ): null
 
-    </>
-  )
 }
 
 export default App
