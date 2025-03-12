@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import authService from "./appwrite/auth"
 import { login, logout } from "./store/auth";
 import {Header, Footer} from './components/index'
+import {Outlet}  from 'react-router-dom'
 
 function App() {
   const [loading, setLoading]=useState(true);
@@ -26,6 +27,9 @@ function App() {
  return !loading ? (
   <div className="h-screen flex items-center justify-around bg-gray-900">
        <Header/>
+       <main>
+        <Outlet/>
+       </main>
         <h1 className="text-2xl font-mono text-white">Loading...</h1>
         <Footer/>
       </div>
