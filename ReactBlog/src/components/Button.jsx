@@ -1,4 +1,4 @@
-import React from 'react'
+// button components and passing some props we can use this everywhere
 
 const Button = ({
     childern,
