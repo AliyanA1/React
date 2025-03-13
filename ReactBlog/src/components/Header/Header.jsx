@@ -9,7 +9,7 @@ const Header = () => {
     state.auth.status
 )
   const navigate=useNavigate();
-  
+  //navigation for rendering different components
   const navItem=[
     {
       name:'Home',
