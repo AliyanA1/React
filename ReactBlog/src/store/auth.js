@@ -1,3 +1,4 @@
+// authentication for checking user is login or logout 
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
