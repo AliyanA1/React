@@ -37,6 +37,7 @@ export class AuthService{
         return await this.account.deleteSessions()
     }
 
+   //get the current user
     async getCurrentUser(){
         return await this.account.get();
     }
