@@ -30,7 +30,6 @@ function App() {
        <main>
         <Outlet/>
        </main>
-        <h1 className="text-2xl font-mono text-white">Loading...</h1>
         <Footer/>
       </div>
  ): null
