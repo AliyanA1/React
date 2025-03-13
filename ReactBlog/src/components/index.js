@@ -12,3 +12,5 @@ export {
     Logout
 
 }
+
+//import and then export the components
