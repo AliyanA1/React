@@ -1,3 +1,4 @@
+//config file for import and then export all together the .env data
 const config={
     appwriteUrl:String(import.meta.env.VITE_APPWRITE_URL),
 
