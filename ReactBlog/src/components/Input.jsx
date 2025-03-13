@@ -1,3 +1,4 @@
+//making an input component using forwardRef
 import { useId, forwardRef } from "react";
 
 const Input=forwardRef(function Input({
