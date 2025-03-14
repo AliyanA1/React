@@ -5,6 +5,10 @@ import Logo from './Logo.jsx'
 import Logout from './Header/Logout.jsx'
 import Button from './Button'
 import Input from './Input'
+import Signup from './Signup'
+import Select from './Select.jsx'
+import PostCard from './PostCard'
+import Login from './Login.jsx'
 
 export {
     Header,
@@ -14,6 +18,10 @@ export {
     Logout,
     Button,
     Input,
+    Signup,
+    Select,
+    PostCard,
+    Login
 
 }
 
