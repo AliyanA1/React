@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "..";
 import appwriteService from '../../appwrite/post';
@@ -35,12 +35,15 @@ export default function PostForm({ post }) {
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`);
             }
-        } else {
-            const file = await appwriteService.uploadFile(data.image[0]);
+
+        } 
+        //adding an else if case 
+        else {
+            const file = data.image[0]? await appwriteService.uploadFile(data.image[0]): null
 
             if (file) {
                 const fileId = file.$id;
-                data.featuredImage = fileId;
+                data.image = fileId;
                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
 
                 if (dbPost) {
@@ -50,7 +53,7 @@ export default function PostForm({ post }) {
         }
     };
 
-    const slugTransform = useCallback((value) => {
+    const slugTransform = React.useCallback((value) => {
         if (value && typeof value === "string")
             return value
                 .trim()
