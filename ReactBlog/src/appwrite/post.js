@@ -128,7 +128,7 @@ export class Service{
         }
     }
 
-    //file preview
+    //See file preview in storage
     getFilePreview(fileId){
         return this.storage.getFilePreview(
             config.bucketId,
