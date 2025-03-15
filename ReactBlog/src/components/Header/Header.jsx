@@ -23,7 +23,7 @@ const Header = () => {
     },
     {
       name:'Sigin',
-      slug: '/signup'
+      slug: '/signup',
       active: !authStatus
     },
     {
@@ -32,8 +32,8 @@ const Header = () => {
       active: !authStatus
     },
     {
-      name: 'All post',
-      slug: '/all-post',
+      name: 'All posts',
+      slug: '/all-posts',
       active: !authStatus
     },
     {
