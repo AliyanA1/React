@@ -11,22 +11,35 @@ const Signup = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const [error, setError]=useState('')
-    const [register, handleSubmit]=useForm();
+    const {register, handleSubmit}=useForm();
 
-    const signIn=async(data)=>{
-       setError('')
-       try {
-          const userData=  await authService.createAccount(data);
-           if(userData){
-             const currentUser= await authService.getCurrentUser()
-              if(currentUser) dispatch(login(currentUser))
-           }
-          
-           navigate('/')
-       } catch (error) {
-           setError(error.message)
-       }
-    }
+    const signIn = async (data) => {
+        setError('');
+        try {
+            console.log("Attempting to create account...");
+            const userData = await authService.createAccount(data);
+     
+            if (userData.success === false) {
+                setError(userData.message);
+                return;
+            }
+     
+            console.log("User Created:", userData);
+     
+            // Create session only if account creation is successful
+            await authService.logIn({ email: data.email, password: data.password });
+     
+            const currentUser = await authService.getCurrentUser();
+            if (currentUser) dispatch(login(currentUser));
+     
+            navigate('/');
+        } catch (error) {
+            console.error("Signup Error:", error);
+            setError(error.message);
+        }
+     };
+     
+     
   
     return (
         <div
@@ -38,14 +51,14 @@ const Signup = () => {
                             <Logo width="100%" />
                         </span>
             </div>
-            <h2 className="text-center text-2xl font-bold leading-tight">Login to your account</h2>
+            <h2 className="text-center text-2xl font-bold leading-tight">Sigin to your account</h2>
             <p className="mt-2 text-center text-base text-black/60">
-                        Don&apos;t have an account?&nbsp;
+                        Already have an account?&nbsp;
                         <Link
                             to="/login"
                             className="font-medium text-primary transition-all duration-200 hover:underline"
                         >
-                            Sign Up
+                            Login
                         </Link>
             </p>
             {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
@@ -81,7 +94,7 @@ const Signup = () => {
                     />
                     <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full "
                     >Sign in</Button>
                 </div>
             </form>
