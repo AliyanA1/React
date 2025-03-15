@@ -1,10 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Button, Input, RTE, Select } from "..";
-import appwriteService from '../../appwrite/post';
+import { Button, Input, RTE, Select } from '../index'
+import service from "../../appwrite/post";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
+//PostForm handle the post
+//All the functly of post is here
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
@@ -21,13 +24,13 @@ export default function PostForm({ post }) {
     //submit function
     const submit = async (data) => {
         if (post) {
-            const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
 
             if (file) {
-                appwriteService.deletFile(post.image);
+                service.deletFile(post.image);
             }
 
-            const dbPost = await appwriteService.updatePost(post.$id, {
+            const dbPost = await service.updatePost(post.$id, {
                 ...data,
                 image: file ? file.$id : undefined,
             });
@@ -39,12 +42,12 @@ export default function PostForm({ post }) {
         } 
         //adding an else if case 
         else {
-            const file = data.image[0]? await appwriteService.uploadFile(data.image[0]): null
+            const file = data.image[0]? await service.uploadFile(data.image[0]): null
 
             if (file) {
                 const fileId = file.$id;
                 data.image = fileId;
-                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+                const dbPost = await service.createPost({ ...data, userId: userData.$id });
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
@@ -105,7 +108,7 @@ export default function PostForm({ post }) {
                 {post && (
                     <div className="w-full mb-4">
                         <img
-                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            src={service.getFilePreview(post.featuredImage)}
                             alt={post.title}
                             className="rounded-lg"
                         />
