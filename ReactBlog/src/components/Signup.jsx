@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { login as authLogin, login } from "../store/auth"
+import {login } from "../store/auth"
 import {Button,Input, Logo} from './index'
 import { useDispatch } from "react-redux"
 import authService from "../appwrite/auth"
@@ -38,7 +38,7 @@ const Signup = () => {
                             <Logo width="100%" />
                         </span>
             </div>
-            <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>
+            <h2 className="text-center text-2xl font-bold leading-tight">Login to your account</h2>
             <p className="mt-2 text-center text-base text-black/60">
                         Don&apos;t have an account?&nbsp;
                         <Link
