@@ -5,6 +5,7 @@ import { login, logout } from "./store/auth";
 import {Header, Footer} from './components/index'
 import {Outlet}  from 'react-router-dom'
 
+//Main App
 function App() {
   const [loading, setLoading]=useState(true);
   const dispatch=useDispatch();
@@ -25,7 +26,7 @@ function App() {
  
 
  return !loading ? (
-  <div className="h-screen flex items-center justify-around bg-gray-900">
+  <div >
        <Header/>
        <main>
         <Outlet/>
