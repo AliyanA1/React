@@ -18,10 +18,11 @@ export class AuthService{
         try {
             return await this.account.create(ID.unique(), email, password, name);
         } catch (error) {
-            console.error("Account creation failed:", error);
-            return { success: false, message: "Failed to create account. Please try again." };
+            console.error("Account creation failed:", error); // Log the actual error
+            return { success: false, message: error.message }; // Return real error
         }
     }
+    
     // login account
     async logIn({email, password}){
        try {
@@ -38,9 +39,14 @@ export class AuthService{
     }
 
    //get the current user
-    async getCurrentUser(){
+   async getCurrentUser() {
+    try {
         return await this.account.get();
+    } catch (error) {
+        console.error("Failed to get current user:", error);
+        return null;
     }
+}
 }
 
 

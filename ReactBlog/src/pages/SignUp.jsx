@@ -5,7 +5,7 @@ import React from 'react'
 const SignUp = () => {
   return (
     <div className="py-8">
-        <SignUp/>
+        <Signup/>
     </div>
   )
 }
