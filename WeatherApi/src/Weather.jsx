@@ -16,11 +16,15 @@ const Weather=()=>{
         try {
             setError(null)
          const data=  await fetch(`http://api.weatherapi.com/v1/current.json?key=${api}&q=${city}&aqi=no`)
-           const response= await data.json()
+          if (!data.ok){
+            throw new error('invaild santax')
+          }
+         const response= await data.json()
             console.log(response)
             setDeta(response);
         } catch (error) {
-            setError(error)
+            setError('invaild name',error)
+            
         }
     }
 
@@ -54,7 +58,7 @@ const Weather=()=>{
                     </button>
                 </div>
 
-                {error && <p className="text-red-400 mt-4">{error}</p>}
+                {error && <p className="text-red-400 mt-4">{String(error)}</p>}
 
                 {deta && (
                     <div className="mt-6">
