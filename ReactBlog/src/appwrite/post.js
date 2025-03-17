@@ -115,7 +115,7 @@ export class Service{
     }
 
     //delet a file
-    async deletFile(fileId){
+    async deleteFile(fileId){
         try {
             await this.storage.deleteFile(
                 config.bucketId,
