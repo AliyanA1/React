@@ -17,7 +17,7 @@ const Weather=()=>{
             setError(null)
          const data=  await fetch(`http://api.weatherapi.com/v1/current.json?key=${api}&q=${city}&aqi=no`)
           if (!data.ok){
-            throw new error('invaild santax')
+            throw new error('Error in getting Api')
           }
          const response= await data.json()
             console.log(response)
