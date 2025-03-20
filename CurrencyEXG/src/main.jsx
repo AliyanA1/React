@@ -1,11 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
-import Currency from './Currency'
+const App = () => {
+  return (
+    <div>
+      <h1> <Link to="/calculator">Calculator</Link> </h1>  
+      <Outlet /> {/* ✅ Now only renders the correct component */}
+    </div>
+  )
+}
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Currency />
-  </StrictMode>,
-)
+export default App
