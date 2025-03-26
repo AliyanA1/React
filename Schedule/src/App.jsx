@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import EventForm from './components/EventForm';
+import EventList from './components/EventList';
+import { notifyUser, scheduleNextOccurrence } from './utils/eventUtils';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    if ("Notification" in window) {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      events.forEach(event => {
+        const eventTime = new Date(event.dateTime);
+        if (now >= eventTime && !event.notified) {
+          notifyUser(event);
+          setEvents(prev => prev.map(e => 
+            e.id === event.id ? { ...e, notified: true } : e
+          ));
+          if (event.recurring) {
+            scheduleNextOccurrence(event, setEvents);
+          }
+        }
+      });
+    }, 1000 * 60); // Check every minute
+    
+    return () => clearInterval(interval);
+  }, [events]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <h1>Event Scheduler</h1>
+      <EventForm setEvents={setEvents} />
+      <EventList events={events} />
+    </div>
+  );
 }
 
-export default App
+export default App;
